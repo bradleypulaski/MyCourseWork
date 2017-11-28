@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Hello World</title>
+	</head>
+	<body>
+  <source src="P.ogg" type="audio/ogg" id="Primate">
+
+		<center>
+			<h1>Here is my awesome title</h1>
+			<h2>this header is less important for some reason</h2>
+		
+			<a href="http://google.com" target="_blank">Click here</a> for google.... if ya really want to
+			<b><a href="http://amazon.com" target="_blank">Click here</a></b> for amazon.... if ya really want to
+			<a href="#">Click here to go nowhere</a>
+			<br/>
+			<img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" />
+			<br/>
+			<h4>Click row to hear animal noises</h4>
+			<table id="currency_table">
+				<thead>
+					<th>Animal Class</th>
+					<th>Animal Name</th>
+				</thead>
+				<tbody id="tbody">
+					 
+				</tbody>
+			</table>	
+			<h4 style=" text-align: left">Good Musics</h4>		
+<ul style="list-style: none; text-align: left">
+	<li>Epica</li>
+	<li>Black Sabbath</li>
+	<li>Yngwei Malmsteen</li>
+	<li>Richard Wagner</li>
+	<li>Ludwig van Beethoven</li>
+</ul>
+<h4>Let's make a sammich</h4>
+<ol><li>get sum bread</li><li>add sum meats</li><li>add sum cheeze</li><li>add sum peanut butter</li><li>close the sandwich</li><li>throw it in the trash because you added peanut butter</li></ol>
+<br/>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/GGU1P6lBW6Q" frameborder="0" allowfullscreen></iframe>
+		</center>
+		<style type="text/css">
+			a {
+				display: block;
+			}
+			#currency_table {
+				border-collapse: collapse;
+			}
+			#currency_table td {
+				padding: 3px;
+				border: 1px solid black;
+			}		
+			#currency_table tr.odd {
+				 background-color: lightgrey;
+			}	
+			#currency_table th {
+				background-color: lightblue;
+			}	
+			#currency_table tr:hover {
+				background-color: cyan;
+				cursor: pointer;
+			}	
+		</style>
+		<script type="text/javascript">
+			var array = {"Feline":"Abyssinian","Canine":"Golden Retreiver","Fish":"Coy","Primate":"Human Being"};
+			var i = 0;
+			var oddeven = "odd";
+			for (key in array) {
+
+				if (i % 2 == 0) {
+					oddeven = "even";
+				} else {
+					oddeven = "odd";
+				}
+				var html = document.getElementById("tbody").innerHTML;
+				document.getElementById("tbody").innerHTML = html  + "<tr data-id='" + key + "' class='" + oddeven + "'><td>" + key + "</td><td>" + array[key] + "</td></tr>";
+				i++;
+			}
+
+			var rows = document.getElementById("currency_table").getElementsByTagName("tr");
+			for (key in rows) {
+				var row = rows[key];
+				row.onclick =  function(){
+					var id = this.getAttribute("data-id");
+ 					var sound = new Audio(id + ".mp3"); 
+ 					sound.play();
+ 				};
+				
+			}
+		</script>	
+	</body>	
+</html>
